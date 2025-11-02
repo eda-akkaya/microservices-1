@@ -6,8 +6,8 @@ spring:
       server:
         webflux:
           routes:
-            - id: product-service-static-route
-              uri: http://localhost:8080
+            - id: product-service-route
+              uri: lb://product-service
               predicates:
                 - Path=/api/v1/products/**
             - id: payment-service-static-route
@@ -15,6 +15,12 @@ spring:
               predicates:
                 - Path=/api/v1/payments/**
 
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 
 
 server:
