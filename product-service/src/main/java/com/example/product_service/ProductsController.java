@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductsController {
 
     @GetMapping
-    public String get(){
-        return "Merhaba, Product Servcice";
+    public String get(String name){
+        return "Merhaba, " + name + " Product Servcice";
     }
 }
