@@ -11,5 +11,7 @@ services:
     image: edaakkaya/tcell45-gateway-server
     ports:
       -  "8888:8888"
+    depends_on:
+      - config-server
     environment:
       - CONFIG_URI=http://config-server:8989
